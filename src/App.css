@@ -1,0 +1,30 @@
+.resizeable {
+  background-color: steelblue;
+  /* resize: horizontal; */
+  height: 2rem;
+  /* resize: both; */
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.handle {
+  height: 100%;
+  width: 0.5rem;
+  position: absolute;
+  right: 0px;
+  cursor: col-resize;
+
+  background-color: hwb(207 18% 63%);
+}
+
+.enhmark {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgb(77, 76, 103) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
