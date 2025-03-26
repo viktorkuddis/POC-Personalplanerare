@@ -6,26 +6,40 @@ import "./App.css";
 // import { calculateOneHourRepresentationInPixels } from "./utils/calculateTimeRepresentationUtils";
 
 import TimeBlock from "./TimeBlock";
-const timelineSize = 2;
+import { TimeLineIndicator } from "./components/TimeLineIndicator/TimeLineIndicator";
+const timelineSize = 4;
 
 <p> Varje block här representerar 1 h i tid</p>;
 
 function App() {
   return (
     <>
+      <div className="container">
+        <div className="scrollContainer">
+          <div className="timeSpansContainer">
+            <TimeLineIndicator timelineSize={timelineSize} />
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          </div>
+          <div className="Time"></div>
+        </div>
+      </div>
       <TimeBlock timelineSize={timelineSize}></TimeBlock>
       <p> Varje block här representerar 1 h i tid</p>
-      <div>
-        {Array.from({ length: 24 }, (_, i) => (
-          <div
-            className="enhmark"
-            style={{ width: `${timelineSize}rem` }}
-            key={i}
-          >
-            {i}
-          </div>
-        ))}
-      </div>
       <br />
       <br />
     </>
