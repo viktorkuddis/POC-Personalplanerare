@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect } from "react";
 import "./App.css";
 
 import { calculateDurationInHours } from "./utils/calculateDurationUtils";
@@ -62,8 +62,40 @@ export default function TimeBlock({ timelineSize }) {
     );
   }, [timelineSize]);
 
-  const resizing = useCallback(
-    (e) => {
+  // const resizing = useCallback(
+  //   (e) => {
+  //     if (isResizing) {
+  //       console.log("vi movar");
+  //       //varje gång musen flyttar sig en pixel tar vi reda på diffen
+  //       const oldPosition = initialMousePositionRight;
+  //       const newPosition = e.clientX;
+
+  //       const sizeDiff = newPosition - oldPosition;
+
+  //       const durationDiff = hourRepresentationOfOnePixel * sizeDiff;
+
+  //       console.log(sizeDiff);
+  //       console.log(durationDiff);
+
+  //       setInitialMousePositionRight(newPosition);
+  //       setDuration(duration + durationDiff);
+
+  //       // setDuration(duration + 0.1);
+  //       console.log(e.clientX);
+  //     }
+  //   },
+  //   [
+  //     isResizing,
+  //     duration,
+  //     hourRepresentationOfOnePixel,
+  //     initialMousePositionRight,
+  //   ]
+  // );
+
+  // kollar Resizing pågor och gör logik isåfall.
+  // Triggas när isResizing slårs på eller av
+  useEffect(() => {
+    function resizing(e) {
       if (isResizing) {
         console.log("vi movar");
         //varje gång musen flyttar sig en pixel tar vi reda på diffen
@@ -83,18 +115,8 @@ export default function TimeBlock({ timelineSize }) {
         // setDuration(duration + 0.1);
         console.log(e.clientX);
       }
-    },
-    [
-      isResizing,
-      duration,
-      hourRepresentationOfOnePixel,
-      initialMousePositionRight,
-    ]
-  );
+    }
 
-  // kollar Resizing pågor och gör logik isåfall.
-  // Triggas när isResizing slårs på eller av
-  useEffect(() => {
     if (isResizing) {
       //disablear möjligheten att råka markera text:
       document.body.style.userSelect = "none";
@@ -116,7 +138,12 @@ export default function TimeBlock({ timelineSize }) {
       document.body.style.userSelect = "auto";
       document.body.style.webkitUserSelect = "auto";
     };
-  }, [isResizing, resizing]);
+  }, [
+    isResizing,
+    duration,
+    hourRepresentationOfOnePixel,
+    initialMousePositionRight,
+  ]);
 
   return (
     <>

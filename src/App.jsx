@@ -7,7 +7,7 @@ import "./App.css";
 
 import TimeBlock from "./TimeBlock";
 import { TimeLineIndicator } from "./components/TimeLineIndicator/TimeLineIndicator";
-const timelineSize = 4;
+const timelineSize = 3;
 
 function App() {
   return (
