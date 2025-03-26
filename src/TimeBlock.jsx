@@ -138,6 +138,7 @@ export default function TimeBlock({ timelineSize }) {
           onMouseUp={stopResizing}
         ></div>
       </div>
+      {duration}h
     </>
   );
 }

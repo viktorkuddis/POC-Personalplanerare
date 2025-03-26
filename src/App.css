@@ -27,6 +27,6 @@
 .scrollContainer {
   overflow: auto;
   border: 1px solid rgb(162, 168, 216);
-  height: 500px;
+  height: 400px;
   position: relative;
 }

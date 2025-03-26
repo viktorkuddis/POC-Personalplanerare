@@ -9,36 +9,40 @@ import TimeBlock from "./TimeBlock";
 import { TimeLineIndicator } from "./components/TimeLineIndicator/TimeLineIndicator";
 const timelineSize = 4;
 
-<p> Varje block här representerar 1 h i tid</p>;
-
 function App() {
   return (
     <>
+      <h2>POC PERSONALPLANERARE</h2>
       <div className="container">
         <div className="scrollContainer">
           <div className="timeSpansContainer">
             <TimeLineIndicator timelineSize={timelineSize} />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
+
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
             <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
+            <br />
+            <br />
           </div>
           <div className="Time"></div>
         </div>
       </div>
-      <TimeBlock timelineSize={timelineSize}></TimeBlock>
       <p> Varje block här representerar 1 h i tid</p>
       <br />
       <br />
