@@ -98,12 +98,15 @@ function App() {
     if (isResizing) {
       //disablear möjligheten att råka markera text:
       document.body.style.userSelect = "none";
+      document.body.style.webkitUserSelect = "none";
+
       // Lägg till eventlyssnare på musen
       document.addEventListener("mousemove", NEWRESISINGRIGHT);
       document.addEventListener("mouseup", stopResizing);
     } else {
       //Man får nu markera text igen när resizing är avstängd
       document.body.style.userSelect = "auto";
+      document.body.style.webkitUserSelect = "auto";
     }
 
     return () => {
@@ -111,6 +114,7 @@ function App() {
       document.removeEventListener("mousemove", NEWRESISINGRIGHT);
       document.removeEventListener("mouseup", stopResizing);
       document.body.style.userSelect = "auto";
+      document.body.style.webkitUserSelect = "auto";
     };
   }, [isResizing, NEWRESISINGRIGHT]);
 
