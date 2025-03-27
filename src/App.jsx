@@ -5,7 +5,7 @@ import "./App.css";
 // import { useState } from "react";
 // import { calculateOneHourRepresentationInPixels } from "./utils/calculateTimeRepresentationUtils";
 
-import TimeBlock from "./TimeBlock";
+import TimeBlock from "./components/TimeBlock/TimeBlock";
 import { TimeLineIndicator } from "./components/TimeLineIndicator/TimeLineIndicator";
 const timelineSize = 3;
 

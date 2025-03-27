@@ -1,9 +1,9 @@
 import { useRef, useEffect } from "react";
-import "./App.css";
+import styles from "./TimeBlock.module.css";
 
-import { calculateDurationInHours } from "./utils/calculateDurationUtils";
+import { calculateDurationInHours } from "../../utils/calculateDurationUtils";
 import { useState } from "react";
-import { calculateOneHourRepresentationInPixels } from "./utils/calculateTimeRepresentationUtils";
+import { calculateOneHourRepresentationInPixels } from "../../utils/calculateTimeRepresentationUtils";
 
 // Räknar ut hur många enheter brett tidsblocket ska vara baserat på timmar i deciamlform.
 const initialDuration = calculateDurationInHours(
@@ -157,10 +157,10 @@ export default function TimeBlock({ timelineSize }) {
       <div
         ref={tidsblockRef}
         style={{ width: `${duration * pixelRepresentationOfOneHour}px` }}
-        className="resizeable"
+        className={styles.resizeable}
       >
         <div
-          className="handle"
+          className={styles.handle}
           onMouseDown={startResizing}
           onMouseUp={stopResizing}
         ></div>
