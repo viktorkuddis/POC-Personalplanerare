@@ -7,7 +7,7 @@ import "./App.css";
 
 import TimeBlock from "./components/TimeBlock/TimeBlock";
 import { TimeLineIndicator } from "./components/TimeLineIndicator/TimeLineIndicator";
-const timelineSize = 3;
+const timelineSize = 2;
 
 function App() {
   return (
@@ -15,32 +15,20 @@ function App() {
       <h2>POC PERSONALPLANERARE</h2>
       <div className="container">
         <div className="scrollContainer">
-          <div className="timeSpansContainer">
-            <TimeLineIndicator timelineSize={timelineSize} />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
 
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <br />
-          </div>
-          <div className="Time"></div>
+          <TimeLineIndicator timelineSize={timelineSize} />
+          <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br />
+          <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
+          <br />
+
+
+
         </div>
       </div>
       <p> Varje block här representerar 1 h i tid</p>

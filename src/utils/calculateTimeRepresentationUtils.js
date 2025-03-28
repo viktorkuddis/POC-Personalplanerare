@@ -9,3 +9,5 @@ export function calculateOneHourRepresentationInPixels(timeLineSize) {
 
   return oneHoureRepresentationInPixels;
 }
+
+

@@ -5,8 +5,11 @@ export function calculateDurationInHours(
   // console.log("starttid:", startTimeAsDateObject);
   // console.log("sluttid:", endTimeAsDateObject);
 
+
+
   // räknar diff:
-  const durationMilliseconds = endTimeAsDateObject - startTimeAsDateObject;
+  //(ser till att de verkligen är dateobjekt också )
+  const durationMilliseconds = new Date(endTimeAsDateObject) - new Date(startTimeAsDateObject);
   // console.log("duration i milisekunder:", durationMilliseconds);
 
   const durationMinutes = durationMilliseconds / (1000 * 60);
@@ -17,3 +20,28 @@ export function calculateDurationInHours(
 
   return durationHours;
 }
+
+export function calculateStartTimeDurationInHours(
+  startTimeAsDateObject
+) {
+
+  const shiftStartTime = new Date(startTimeAsDateObject)
+
+  let nolltid = new Date(startTimeAsDateObject);
+  nolltid.setHours(0, 0, 0, 0);
+  // console.log(nolltid);
+
+  // räknar diff:
+  const durationMilliseconds = shiftStartTime - nolltid;
+  // console.log("duration i milisekunder:", durationMilliseconds);
+
+  const durationMinutes = durationMilliseconds / (1000 * 60);
+  // console.log("duration i minuter", durationMinutes);
+
+  const durationHours = durationMinutes / 60;
+  // console.log("duration i Timmar med decimal", durationHours);
+
+  return durationHours;
+}
+
+

@@ -1,19 +1,29 @@
 import { useEffect } from "react";
 import styles from "./TimeBlock.module.css";
 
-import { calculateDurationInHours } from "../../utils/calculateDurationUtils";
+import { calculateDurationInHours, calculateStartTimeDurationInHours as calculateStartTimeInHours } from "../../utils/calculateDurationUtils";
 import { useState } from "react";
-import { calculateOneHourRepresentationInPixels } from "../../utils/calculateTimeRepresentationUtils";
+import { calculateOneHourRepresentationInPixels, } from "../../utils/calculateTimeRepresentationUtils";
 
 import { useResizeTimeBlock } from "../../hooks/useResizeTimeBlock";
 
+const DummyData = {
+  shiftStart: "2024-03-24T09:00:00",
+  shiftEnd: "2024-03-24T16:00:00"
+}
+
+
 // Räknar ut hur många enheter brett tidsblocket ska vara baserat på timmar i deciamlform.
 const initialDuration = calculateDurationInHours(
-  new Date("2024-03-24T09:00:00"),
-  new Date("2024-03-24T17:00:00")
+  new Date(DummyData.shiftStart),
+  new Date(DummyData.shiftEnd)
 );
-
 console.log("initial duration: ", initialDuration);
+
+const initialStartTimeInHours = calculateStartTimeInHours(DummyData.shiftStart)
+
+
+
 
 export default function TimeBlock({ timelineSize }) {
 
@@ -22,9 +32,14 @@ export default function TimeBlock({ timelineSize }) {
   //beskriver med deciamler hur mycket EN pixel på skärmen är värd i tid:
   const [hourRepresentationOfOnePixel, setHourRepresentationOfOnePixel] = useState(1 / 16);
 
-  const [isResizing, setIsResizing] = useState(false);
+
   const [duration, setDuration] = useState(initialDuration);
+  const [startTimeInHours, setStartTimeInHours] = useState(initialStartTimeInHours)
+
+  const [isResizing, setIsResizing] = useState(false);
+
   const [initialMousePositionRight, setInitialMousePositionRight] = useState(null);
+
 
   function stopResizing() {
     setIsResizing(false);
@@ -47,6 +62,10 @@ export default function TimeBlock({ timelineSize }) {
 
 
 
+  // //Hur lång tid motdvarar det i pixlar på skärmen::
+  // const initialStartTimePosition = initialDuration * pixelRepresentationOfOneHour;
+  // console.log("initial Start Time Position", initialStartTimePosition, "px")
+
   useResizeTimeBlock({
     isResizing: isResizing,
     stopResizing: stopResizing,
@@ -67,7 +86,7 @@ export default function TimeBlock({ timelineSize }) {
       <br />
       Initial musposition höger: {initialMousePositionRight} */}
       <div
-        style={{ width: `${duration * pixelRepresentationOfOneHour}px` }}
+        style={{ width: `${duration * pixelRepresentationOfOneHour}px`, left: `${startTimeInHours * pixelRepresentationOfOneHour}px` }}
         className={styles.resizeable}
       >
         <div
