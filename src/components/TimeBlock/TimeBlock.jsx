@@ -37,18 +37,32 @@ export default function TimeBlock({ timelineSize }) {
   const [startTimeInHours, setStartTimeInHours] = useState(initialStartTimeInHours)
 
   const [isResizing, setIsResizing] = useState(false);
+  const [isResizingLeft, setIsResizingLeft] = useState(false);
+  const [isResizingRight, setIsResizingRight] = useState(false);
+
 
   const [initialMousePositionRight, setInitialMousePositionRight] = useState(null);
+  const [initialMousePositionLeft, setInitialMousePositionLeft] = useState(null);
 
 
   function stopResizing() {
     setIsResizing(false);
+    setIsResizingLeft(false);
+    setIsResizingRight(false);
     // console.log("resizing stopad");
   }
 
-  function startResizingRight(e) {
+  function handleStartResizingRight(e) {
     setIsResizing(true);
+    setIsResizingRight(true)
     setInitialMousePositionRight(e.clientX);
+    // console.log(e.clientX);
+    // console.log("resizing startar");
+  }
+  function handleStartResizingLeft(e) {
+    setIsResizing(true);
+    setIsResizingLeft(true)
+    setInitialMousePositionLeft(e.clientX);
     // console.log(e.clientX);
     // console.log("resizing startar");
   }
@@ -68,12 +82,19 @@ export default function TimeBlock({ timelineSize }) {
 
   useResizeTimeBlock({
     isResizing: isResizing,
+    isResizingLeft: isResizingLeft,
+    isResizingRight: isResizingRight,
     stopResizing: stopResizing,
     duration: duration,
     setDuration: setDuration,
     hourRepresentationOfOnePixel: hourRepresentationOfOnePixel,
     initialMousePositionRight: initialMousePositionRight,
     setInitialMousePositionRight: setInitialMousePositionRight,
+    initialMousePositionLeft: initialMousePositionLeft,
+    setInitialMousePositionLeft: setInitialMousePositionLeft,
+    startTimeInHours: startTimeInHours,
+    setStartTimeInHours: setStartTimeInHours
+
   });
 
   return (
@@ -90,12 +111,20 @@ export default function TimeBlock({ timelineSize }) {
         className={styles.resizeable}
       >
         <div
-          className={styles.handle}
-          onMouseDown={startResizingRight}
+          className={`${styles.handle} ${styles.leftHandle}`}
+          onMouseDown={handleStartResizingLeft}
+          onMouseUp={stopResizing}
+
+        ></div>
+        <div
+          className={`${styles.handle} ${styles.rightHandle}`}
+          onMouseDown={handleStartResizingRight}
           onMouseUp={stopResizing}
         ></div>
-      </div>
-      {duration}h
+
+      </div >
+      {duration}h -  {isResizingLeft && "isResizingLeft"} {isResizingRight && "isResizingRight"}
+
     </>
   );
 }

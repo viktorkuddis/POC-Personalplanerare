@@ -2,12 +2,19 @@ import { useEffect } from "react";
 
 export function useResizeTimeBlock({
   isResizing,
+  isResizingLeft,
+  isResizingRight,
   stopResizing,
   duration,
   setDuration,
   hourRepresentationOfOnePixel,
   initialMousePositionRight,
   setInitialMousePositionRight,
+  initialMousePositionLeft,
+  setInitialMousePositionLeft,
+  startTimeInHours,
+  setStartTimeInHours
+
 }) {
   useEffect(() => {
 
@@ -26,8 +33,8 @@ export function useResizeTimeBlock({
     }
 
     function resizing(e) {
-      if (isResizing) {
-        console.log("vi movar");
+      if (isResizingRight) {
+        console.log("vi movar Right Handle");
 
         //varje gång musen flyttar sig en pixel tar vi reda på diffen
         const oldPosition = initialMousePositionRight;
@@ -40,8 +47,35 @@ export function useResizeTimeBlock({
           "Diff muspek. Position:", positionDiff, "px |", "Diff duration: ", durationDiff, "h"
         );
 
-        setInitialMousePositionRight(newPosition);
+        //duration är de som styr blockets högra position
         setDuration(duration + durationDiff);
+
+        // uppdaterar initial musposition för nästa förflyttning:
+        setInitialMousePositionRight(newPosition);
+      }
+
+      if (isResizingLeft) {
+        console.log("vi movar Left Handle");
+
+        //varje gång musen flyttar sig en pixel tar vi reda på diffen
+        const oldPosition = initialMousePositionLeft;
+        const newPosition = e.clientX;
+
+        const positionDiff = newPosition - oldPosition;
+        const durationDiff = hourRepresentationOfOnePixel * positionDiff;
+
+        console.log(
+          "Diff muspek. Position:", positionDiff, "px |", "Diff duration: ", durationDiff, "h"
+        );
+
+        //Ändrar blockets längd.
+        setDuration(duration - durationDiff);
+
+        //blockets vänsta position styrs av starttiden.
+        setStartTimeInHours(startTimeInHours + durationDiff)
+
+        // uppdaterar initial musposition för nästa förflyttning:
+        setInitialMousePositionLeft(newPosition);
       }
     }
 
@@ -54,13 +88,5 @@ export function useResizeTimeBlock({
       document.body.style.userSelect = "auto";
       document.body.style.webkitUserSelect = "auto";
     };
-  }, [
-    duration,
-    hourRepresentationOfOnePixel,
-    initialMousePositionRight,
-    isResizing,
-    setDuration,
-    setInitialMousePositionRight,
-    stopResizing,
-  ]);
+  }, [duration, hourRepresentationOfOnePixel, initialMousePositionRight, isResizing, setDuration, setInitialMousePositionRight, stopResizing, isResizingLeft, isResizingRight, initialMousePositionLeft, setInitialMousePositionLeft]);
 }

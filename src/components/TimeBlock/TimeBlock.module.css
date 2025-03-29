@@ -12,10 +12,14 @@
   height: 100%;
   width: 0.5rem;
   position: absolute;
-  right: 0px;
   cursor: col-resize;
-
   background-color: hwb(207 18% 63%);
+}
+.leftHandle {
+  left: 0px;
+}
+.rightHandle {
+  right: 0px;
 }
 
 .container {
