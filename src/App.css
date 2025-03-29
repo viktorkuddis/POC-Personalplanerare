@@ -7,19 +7,19 @@
 }
 
 .container {
-  background-color: rgb(232, 237, 250);
+  background-color: rgba(136, 136, 136, 0.1);
   padding: 1rem;
-
   border-radius: 0.5rem;
+  margin: 1rem;
 }
 .scrollContainer {
   overflow: auto;
-  border: 1px solid rgb(162, 168, 216);
+  border: 1px solid grey;
   height: 400px;
   position: static;
 }
 .contentContainer {
-  background-color: #ffffff95;
+  background-color: hsla(0, 0%, 76%, 0.1);
   padding-bottom: 1rem;
   width: fit-content;
 }

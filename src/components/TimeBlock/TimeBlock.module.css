@@ -1,6 +1,7 @@
 .resizeable {
-  background-color: rgb(238, 242, 255);
-  border: 1px, solid, hwb(231 9% 75% / 0.757);
+  background-color: rgb(233, 238, 255);
+  border: 1px solid hwb(230 25% 45%);
+
   /* resize: horizontal; */
   min-height: 2rem;
   /* resize: both; */
@@ -16,7 +17,7 @@
   width: 0.5rem;
   position: absolute;
   cursor: col-resize;
-  background-color: hwb(231 9% 75% / 0.757);
+  background-color: hwb(230 25% 45%);
 }
 .leftHandle {
   left: 0px;
@@ -26,7 +27,7 @@
 }
 .body {
   /* background-color: aqua; */
-  margin-left: 1rem;
-  margin-right: 1rem;
+  padding: 0 1rem;
+
   height: 100%;
 }

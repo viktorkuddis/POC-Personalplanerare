@@ -9,14 +9,20 @@ function TimelineRow({ firstColumnSize, userData, timelineSize, children }) {
 
     return (<>
 
-
         <div className={styles.row}>
+            {/* detta är linjerna osm är placerade i bakgrunden: */}
             <TimeLineIndicatorLines firstColumnSize={10} timelineSize={timelineSize} />
 
             <div className={styles.firstColumn} style={{ width: `${firstColumnSize}rem` }}>
                 {userData.name}
             </div>
-            {children}
+            <div style={{
+                paddingTop: "0.5rem",
+                paddingBottom: "0.5rem"
+            }}>
+                {children}
+
+            </div>
         </div>
     </>
     )

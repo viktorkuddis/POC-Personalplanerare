@@ -10,9 +10,9 @@
 /* .paddingBoxLeft {
 } */
 
-/* VARIANTS */
+/* VARIANTS */ /* VARIANTS */ /* VARIANTS */ /* VARIANTS */ /* VARIANTS */
 
-/* numners: */
+/* numners: */ /* numners: */ /* numners: */ /* numners: */ /* numners: */
 .timeSpansContainerNumberVariant {
   background-color: white;
   border-bottom: 1px solid rgba(128, 128, 128, 0.5);
@@ -22,17 +22,24 @@
 }
 .numberVariant {
   border-left: 1px solid rgba(128, 128, 128, 0.1);
+  border: none; /*ingen kantlinje */
 }
 
-/* lines: */
+.timeStampLable {
+  font-size: 70%;
+  display: inline-block;
+  transform: translateX(-50%);
+}
+
+/* lines: */ /* lines: */ /* lines: */ /* lines: */ /* lines: */ /* lines: */
 .timeSpansContainerLineVariant {
   pointer-events: none; /* är ej ivägen för kick*/
   position: absolute;
-  top: -0.5rem;
-  bottom: -0.5rem;
-  left: 0;
+  top: 0;
+  bottom: 0;
+  left: 0px;
 }
 .lineVariant {
-  border-left: 1px solid rgba(128, 128, 128, 0.05);
+  border-left: 1px solid rgba(128, 128, 128, 0.1);
   height: 100%;
 }

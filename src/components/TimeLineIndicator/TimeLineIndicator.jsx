@@ -16,7 +16,11 @@ export const TimeLineIndicatorNumbers = ({ firstColumnSize, timelineSize }) => {
               style={{ width: `${timelineSize}rem` }}
               key={i}
             >
-              {i}
+              <span className={styles.timeStampLable} >
+                {i < 10 && "0"}
+                {i}:00
+              </span>
+
             </div>
           ))
         }
