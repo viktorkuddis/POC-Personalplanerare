@@ -1,6 +1,9 @@
 // import { useRef, useEffect, useCallback } from "react";
 import "./App.css";
 
+import { useState, useEffect, useRef } from "react";
+
+
 //importing dummy data:
 import teamMembers from './dummyData/users.json'
 import scheduleRules from './dummyData/scheduleRules.json'
@@ -9,20 +12,41 @@ import TimeBlock from "./components/TimeBlock/TimeBlock";
 import { TimeLineIndicatorLines, TimeLineIndicatorNumbers } from "./components/TimeLineIndicator/TimeLineIndicator";
 import TimelineRow from "./components/TimelineRow/TimelineRow";
 
-const timelineSize = 2;
 
 console.log("teamMembers:", teamMembers)
 console.log('scheduleRules:', scheduleRules)
 
-console.log(timelineSize)
 
 function App() {
+  const scrollContainerRef = useRef(null);
+  const [timelineSize, setTimelineSize] = useState(2)
+
+  function handleChangeTimelineSize(operator) {
+    if (operator == "+") setTimelineSize((prev) => prev + 1)
+    if (operator == "-") setTimelineSize((prev) => prev - 1)
+
+
+  }
+
+  //navigerat till mitten av containern vid start
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+    }
+  }, []);
+
+
   return (
     <>
       <h2>POC PERSONALPLANERARE</h2>
       <div className="container">
 
-        <div className="scrollContainer">
+        <button onClick={() => handleChangeTimelineSize("-")}>-</button>
+        <button onClick={() => handleChangeTimelineSize("+")}>+</button>
+
+
+        <div ref={scrollContainerRef} className="scrollContainer">
 
           <div className="contentContainer">
 
