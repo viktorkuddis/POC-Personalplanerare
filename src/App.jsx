@@ -2,7 +2,7 @@
 import "./App.css";
 
 //importing dummy data:
-import users from './dummyData/users.json'
+import teamMembers from './dummyData/users.json'
 import scheduleRules from './dummyData/scheduleRules.json'
 
 import TimeBlock from "./components/TimeBlock/TimeBlock";
@@ -11,12 +11,11 @@ import TimelineRow from "./components/TimelineRow/TimelineRow";
 
 const timelineSize = 2;
 
-console.log("users:", users)
+console.log("teamMembers:", teamMembers)
 console.log('scheduleRules:', scheduleRules)
 
 console.log(timelineSize)
 
-console.log(users[0])
 function App() {
   return (
     <>
@@ -29,36 +28,13 @@ function App() {
 
 
             <TimeLineIndicatorNumbers firstColumnSize={10} timelineSize={timelineSize} />
+            {teamMembers.map((person) =>
+              <TimelineRow key={person.id} firstColumnSize={10} timelineSize={timelineSize} userData={person}>
+                <TimeBlock timelineSize={timelineSize} />
+              </TimelineRow>
+            )}
 
 
-            <TimelineRow firstColumnSize={10} timelineSize={timelineSize} userData={users[0]}>
-              <TimeBlock timelineSize={timelineSize} />
-            </TimelineRow>
-            <TimelineRow firstColumnSize={10} timelineSize={timelineSize} userData={users[0]}>
-              <TimeBlock timelineSize={timelineSize} />
-            </TimelineRow>
-            <TimelineRow firstColumnSize={10} timelineSize={timelineSize} userData={users[0]}>
-              <TimeBlock timelineSize={timelineSize} />
-            </TimelineRow>
-            <TimelineRow firstColumnSize={10} timelineSize={timelineSize} userData={users[0]}>
-              <TimeBlock timelineSize={timelineSize} />
-            </TimelineRow>
-
-
-
-
-
-
-
-            {/* <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br />
-            <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br /> <TimeBlock timelineSize={timelineSize}></TimeBlock>
-            <br /> */}
 
 
           </div>
