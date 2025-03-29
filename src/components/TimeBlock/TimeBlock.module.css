@@ -1,11 +1,14 @@
 .resizeable {
-  background-color: steelblue;
+  background-color: rgb(238, 242, 255);
+  border: 1px, solid, hwb(231 9% 75% / 0.757);
   /* resize: horizontal; */
-  height: 2rem;
+  min-height: 2rem;
   /* resize: both; */
   border-radius: 0.25rem;
   position: relative;
   overflow: hidden;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .handle {
@@ -13,7 +16,7 @@
   width: 0.5rem;
   position: absolute;
   cursor: col-resize;
-  background-color: hwb(207 18% 63%);
+  background-color: hwb(231 9% 75% / 0.757);
 }
 .leftHandle {
   left: 0px;
@@ -21,16 +24,9 @@
 .rightHandle {
   right: 0px;
 }
-
-.container {
-  background-color: rgb(221, 228, 246);
-  padding: 1rem;
-
-  border-radius: 0.5rem;
-}
-.scrollContainer {
-  overflow: auto;
-  border: 1px solid rgb(162, 168, 216);
-  height: 400px;
-  position: relative;
+.body {
+  /* background-color: aqua; */
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 100%;
 }

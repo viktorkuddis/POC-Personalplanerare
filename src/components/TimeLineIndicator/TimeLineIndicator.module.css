@@ -1,16 +1,38 @@
 .timeSpansContainer {
   display: flex;
-  top: 0;
-  position: sticky;
-  z-index: 10;
 }
 
 .oneHourSpan {
   flex-shrink: 0;
   height: 2rem;
-  background: linear-gradient(
-    90deg,
-    rgb(224, 223, 238) 0%,
-    rgb(255, 255, 255) 100%
-  );
+}
+
+/* .paddingBoxLeft {
+} */
+
+/* VARIANTS */
+
+/* numners: */
+.timeSpansContainerNumberVariant {
+  background-color: white;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  top: 0;
+  position: sticky;
+  z-index: 10;
+}
+.numberVariant {
+  border-left: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+/* lines: */
+.timeSpansContainerLineVariant {
+  pointer-events: none; /* är ej ivägen för kick*/
+  position: absolute;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: 0;
+}
+.lineVariant {
+  border-left: 1px solid rgba(128, 128, 128, 0.05);
+  height: 100%;
 }

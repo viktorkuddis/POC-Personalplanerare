@@ -43,6 +43,9 @@ export function useResizeTimeBlock({
         const positionDiff = newPosition - oldPosition;
         const durationDiff = hourRepresentationOfOnePixel * positionDiff;
 
+
+
+
         console.log(
           "Diff muspek. Position:", positionDiff, "px |", "Diff duration: ", durationDiff, "h"
         );

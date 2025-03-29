@@ -1,0 +1,17 @@
+[
+  {
+    "id": "u1",
+    "name": "Emilia Bergström",
+    "weeklyHours": 4
+  },
+  {
+    "id": "u2",
+    "name": "Erik Johansson",
+    "weeklyHours": 10
+  },
+  {
+    "id": "u3",
+    "name": "Felicia Nygren",
+    "weeklyHours": 2
+  }
+]

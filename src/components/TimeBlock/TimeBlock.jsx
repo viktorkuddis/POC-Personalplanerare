@@ -8,8 +8,8 @@ import { calculateOneHourRepresentationInPixels, } from "../../utils/calculateTi
 import { useResizeTimeBlock } from "../../hooks/useResizeTimeBlock";
 
 const DummyData = {
-  shiftStart: "2024-03-24T09:00:00",
-  shiftEnd: "2024-03-24T16:00:00"
+  shiftStart: "2024-03-24T00:00:00",
+  shiftEnd: "2024-03-24T05:00:00"
 }
 
 
@@ -26,6 +26,9 @@ const initialStartTimeInHours = calculateStartTimeInHours(DummyData.shiftStart)
 
 
 export default function TimeBlock({ timelineSize }) {
+
+
+
 
   // Beskriver hur mycket en timme motsvarar i pixlar på skärmen:
   const [pixelRepresentationOfOneHour, setPixelRepresentationOfOneHour] = useState(16);
@@ -74,8 +77,6 @@ export default function TimeBlock({ timelineSize }) {
     setHourRepresentationOfOnePixel(1 / calculateOneHourRepresentationInPixels(timelineSize));
   }, [timelineSize]);
 
-
-
   // //Hur lång tid motdvarar det i pixlar på skärmen::
   // const initialStartTimePosition = initialDuration * pixelRepresentationOfOneHour;
   // console.log("initial Start Time Position", initialStartTimePosition, "px")
@@ -110,20 +111,26 @@ export default function TimeBlock({ timelineSize }) {
         style={{ width: `${duration * pixelRepresentationOfOneHour}px`, left: `${startTimeInHours * pixelRepresentationOfOneHour}px` }}
         className={styles.resizeable}
       >
+
         <div
           className={`${styles.handle} ${styles.leftHandle}`}
           onMouseDown={handleStartResizingLeft}
           onMouseUp={stopResizing}
 
         ></div>
+
         <div
           className={`${styles.handle} ${styles.rightHandle}`}
           onMouseDown={handleStartResizingRight}
           onMouseUp={stopResizing}
         ></div>
+        <div className={`${styles.body}`}>
+          {duration}h -  {isResizingLeft && "isResizingLeft"} {isResizingRight && "isResizingRight"}
+
+        </div>
+
 
       </div >
-      {duration}h -  {isResizingLeft && "isResizingLeft"} {isResizingRight && "isResizingRight"}
 
     </>
   );
