@@ -1,0 +1,5 @@
+.card {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid hsla(0, 0%, 50%, 0.2);
+}

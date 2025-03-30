@@ -3,7 +3,7 @@ export function getClientRemInPixels() {
     getComputedStyle(document.documentElement).fontSize
   );
 
-  console.log("Pixlar motsvarande aktuell rem: ", remInPixels);
+  // console.log("Pixlar motsvarande aktuell rem: ", remInPixels);
 
   return remInPixels;
 }

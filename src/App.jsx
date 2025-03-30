@@ -7,10 +7,12 @@ import { useState, useEffect, useRef } from "react";
 //importing dummy data:
 import teamMembers from './dummyData/users.json'
 import scheduleRules from './dummyData/scheduleRules.json'
+import shifts from './dummyData/shifts.json'
 
 import TimeBlock from "./components/TimeBlock/TimeBlock";
 import { TimeLineIndicatorLines, TimeLineIndicatorNumbers } from "./components/TimeLineIndicator/TimeLineIndicator";
 import TimelineRow from "./components/TimelineRow/TimelineRow";
+import TeamList from "./components/TeamList/TeamList";
 
 
 console.log("teamMembers:", teamMembers)
@@ -40,6 +42,8 @@ function App() {
   return (
     <>
       <h2>POC PERSONALPLANERARE</h2>
+
+      <TeamList teamlist={teamMembers} shifts={shifts} />
       <div className="container">
 
         <button onClick={() => handleChangeTimelineSize("-")}>-</button>

@@ -3,8 +3,8 @@ import styles from './TimelineRow.module.css'
 import { TimeLineIndicatorLines } from '../TimeLineIndicator/TimeLineIndicator';
 
 function TimelineRow({ firstColumnSize, userData, timelineSize, children }) {
-    console.log(userData); // För att kolla på värdet för userData
-    console.log(firstColumnSize);
+    // console.log(userData); // För att kolla på värdet för userData
+    // console.log(firstColumnSize);
 
 
     return (<>
