@@ -4,23 +4,24 @@ export default function TeamList({ teamlist, shifts }) {
     console.log(teamlist)
     console.log(shifts)
 
+
     return (
 
-        teamlist.map((person) => (<>
-            <div key={person.id} style={{
-                width: "100%"
-            }}>
+
+        teamlist.map((person) => (<div key={`${person.id} `}>
+            <div key={person.id} style={{ width: "100%" }}>
+
 
                 <div style={{
 
                 }}>
                     {shifts.map((shift) => (
                         shift.userId == person.id &&
-                        <ShiftCard key={shift.id} person={person} shift={shift} variant={"smallRow"} />
+                        <ShiftCard key={`Card-${person.id}-${shift.id}`} person={person} shift={shift} variant={"smallRow"} />
                     ))}
                 </div>
 
-            </div>
+            </div >
             {/* 
             <div key={person.id} style={{
                 width: "100%"
@@ -40,7 +41,7 @@ export default function TeamList({ teamlist, shifts }) {
                 <br />
                 < hr />
             </div> */}
-        </>
+        </div>
 
 
         ))

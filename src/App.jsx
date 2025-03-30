@@ -5,9 +5,9 @@ import { useState, useEffect, useRef } from "react";
 
 
 //importing dummy data:
-import teamMembers from './dummyData/users.json'
-import scheduleRules from './dummyData/scheduleRules.json'
-import shifts from './dummyData/shifts.json'
+import teamMembersData from './dummyData/users.json'
+import scheduleRulesData from './dummyData/scheduleRules.json'
+import shiftsData from './dummyData/shifts.json'
 
 import TimeBlock from "./components/TimeBlock/TimeBlock";
 import { TimeLineIndicatorLines, TimeLineIndicatorNumbers } from "./components/TimeLineIndicator/TimeLineIndicator";
@@ -15,13 +15,20 @@ import TimelineRow from "./components/TimelineRow/TimelineRow";
 import TeamList from "./components/TeamList/TeamList";
 
 
-console.log("teamMembers:", teamMembers)
-console.log('scheduleRules:', scheduleRules)
+console.log("teamMembersData:", teamMembersData)
+console.log('teamMembersData:', scheduleRulesData)
 
 
 function App() {
   const scrollContainerRef = useRef(null);
   const [timelineSize, setTimelineSize] = useState(2)
+
+
+  // DATA STATES:
+  const [teamMembers] = useState(teamMembersData)
+  // const [scheduleRules] = useState(scheduleRulesData)
+  const [shifts] = useState(shiftsData)
+
 
   function handleChangeTimelineSize(operator) {
     if (operator == "+") setTimelineSize((prev) => prev + 1)
@@ -61,7 +68,10 @@ function App() {
             <TimeLineIndicatorNumbers firstColumnSize={10} timelineSize={timelineSize} />
             {teamMembers.map((person) =>
               <TimelineRow key={person.id} firstColumnSize={10} timelineSize={timelineSize} userData={person}>
-                <TimeBlock timelineSize={timelineSize} />
+
+                {shifts.map((shift) => (shift.userId == person.id && <TimeBlock timelineSize={timelineSize} />
+                ))}
+
               </TimelineRow>
             )}
 
