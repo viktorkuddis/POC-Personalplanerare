@@ -12,9 +12,7 @@ export default function TeamList({ teamlist, shifts }) {
             <div key={person.id} style={{ width: "100%" }}>
 
 
-                <div style={{
-
-                }}>
+                <div>
                     {shifts.map((shift) => (
                         shift.userId == person.id &&
                         <ShiftCard key={`Card-${person.id}-${shift.id}`} person={person} shift={shift} variant={"smallRow"} />

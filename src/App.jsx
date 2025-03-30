@@ -59,13 +59,11 @@ function App() {
       <div style={{
         backgroundColor: "#fff987",
         color: "#4f4b00",
-        margin: "0.5rem",
         padding: "0.5rem"
       }}>
         <h3>POC PERSONALPLANERARE</h3 >
 
         <small> <p >Detta är ett koncepttest(Proof of concept) av en större schemaläggningsapp. Jag utforskar hur arbetspass kan visualiseras på en tidslinje och hur användaren kan interaggera med dem. Systemet ska även ge feedback i realtid.</p></small>
-
 
       </div >
 
@@ -73,18 +71,15 @@ function App() {
 
       <div className="teamListContainer">
         <TeamList teamlist={teamMembers} shifts={shifts} />
-
       </div>
-      <div className="container">
 
+      <div className="container">
         <button onClick={() => handleChangeTimelineSize("-")}>-</button>
         <button onClick={() => handleChangeTimelineSize("+")}>+</button>
 
 
         <div ref={scrollContainerRef} className="scrollContainer">
-
           <div className="contentContainer">
-
 
             <TimeLineIndicatorNumbers firstColumnSize={10} timelineSize={timelineSize} />
             {teamMembers.map((person) =>

@@ -8,18 +8,20 @@
 
 .teamListContainer {
   /* background-color: rgba(128, 128, 128, 0.05); */
-  max-height: 50vh;
+  max-height: 33vh;
   overflow-y: auto;
   border-radius: 0.25rem;
   /* padding: 1rem; */
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
   border: 1px solid rgba(128, 128, 128, 0.1);
 }
+
 .container {
   background-color: rgba(136, 136, 136, 0.1);
   padding: 1rem;
   border-radius: 0.5rem;
-  margin: 1rem;
 }
 .scrollContainer {
   overflow: auto;

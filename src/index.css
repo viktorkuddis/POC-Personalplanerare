@@ -33,6 +33,10 @@ a:hover {
   min-height: 100vh;
 } */
 
+body {
+  padding: 1rem;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
