@@ -43,7 +43,10 @@ function App() {
     <>
       <h2>POC PERSONALPLANERARE</h2>
 
-      <TeamList teamlist={teamMembers} shifts={shifts} />
+      <div className="teamListContainer">
+        <TeamList teamlist={teamMembers} shifts={shifts} />
+
+      </div>
       <div className="container">
 
         <button onClick={() => handleChangeTimelineSize("-")}>-</button>

@@ -8,7 +8,7 @@
 
 .rowCard {
   padding: 0.2rem 1rem;
-  border-top: 1px solid hsla(0, 0%, 50%, 0.2);
+  /* border-top: 1px solid hsla(0, 0%, 50%, 0.2); */
   border-bottom: 1px solid hsla(0, 0%, 50%, 0.2);
 
   &:hover {
