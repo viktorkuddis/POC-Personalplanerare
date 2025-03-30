@@ -3,3 +3,42 @@
   border-radius: 0.5rem;
   border: 2px solid hsla(0, 0%, 50%, 0.2);
 }
+
+/* ---------ROW VARIANT---------*/
+
+.rowCard {
+  padding: 0.2rem 1rem;
+  border-top: 1px solid hsla(0, 0%, 50%, 0.2);
+  border-bottom: 1px solid hsla(0, 0%, 50%, 0.2);
+
+  &:hover {
+    background-color: hsla(0, 0%, 50%, 0.1);
+  }
+}
+.rowCardContent {
+  display: flex;
+  gap: 0.5rem;
+
+  /* background-color: aqua; */
+}
+
+.shiftDetails {
+  display: flex;
+  gap: 1rem;
+  width: 60%;
+
+  /* background-color: aquamarine; */
+
+  section {
+    width: 22%;
+    flex-shrink: 2;
+
+    /* background-color: aqua; */
+  }
+}
+
+.commensContainer {
+  width: 30%;
+
+  /* background-color: beige; */
+}

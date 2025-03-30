@@ -6,7 +6,22 @@ export default function TeamList({ teamlist, shifts }) {
 
     return (
 
-        teamlist.map((person) => (
+        teamlist.map((person) => (<>
+            <div key={person.id} style={{
+                width: "100%"
+            }}>
+
+                <div style={{
+
+                }}>
+                    {shifts.map((shift) => (
+                        shift.userId == person.id &&
+                        <ShiftCard key={shift.id} person={person} shift={shift} variant={"smallRow"} />
+                    ))}
+                </div>
+
+            </div>
+            {/* 
             <div key={person.id} style={{
                 width: "100%"
             }}>
@@ -19,15 +34,16 @@ export default function TeamList({ teamlist, shifts }) {
 
                     {shifts.map((shift) => (
                         shift.userId == person.id &&
-                        <ShiftCard key={shift.id} person={person} shift={shift} />
+                        <ShiftCard key={shift.id} person={person} shift={shift} variant={"smallCard"} />
                     ))}
                 </div>
                 <br />
                 < hr />
-            </div>
+            </div> */}
+        </>
+
 
         ))
-
 
     )
 }
