@@ -1,8 +1,16 @@
+
+//TODO: EdgeCases
+// man får inte zooma ut för mycket.
+// Passen måste följa reglerna uppsatta för det
+// Passen ska varna om övertid och om saker krockar
+// Rita ut rasterna
+
 // import { useRef, useEffect, useCallback } from "react";
 import "./App.css";
 
 import { useState, useEffect, useRef } from "react";
 
+// OBS ATT TIDSLINJEVYN INTE GÖR SKILLNAD PÅ DATUM, UTAN KOMMER ATT RITA UPP DE BLOCK DEN FÅR OBEROENDE PÅ DATUM BARA TID
 
 //importing dummy data:
 import teamMembersData from './dummyData/users.json'
