@@ -8,6 +8,8 @@
 // I kortet: starttid på Passet måste vara före sluttid
 // I kortetn: man kan inte få sätta sluttid på pass innan starttid.
 // sätt inputrutan till att de inte finns nå värde i rastrutorna om båda värdena är 00:00. det betyder att de är tillfälligt fyllda bara
+// buggfixa så ett delete i tiden i kortet inte får allt att crascha
+//enter i kortet ska bekräfta
 
 // I list VYN: Ha olika kort . editorial kort och et vanligt kort som renderas beroende på om statet is editing är på eller av , så att den editorialkortet förvinner helt när man trycker på avbryt så man inte behöver dras me de gamla staten.
 
