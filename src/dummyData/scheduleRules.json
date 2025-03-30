@@ -2,7 +2,7 @@
     "maxHoursPerShift": 12,
     "minHoursPerShift": 4,
     "maxHoursWithoutBreak": 5,
-    "breakDuration": 30
+    "minBreakDuration": 30
    
   }
   

@@ -56,7 +56,20 @@ function App() {
 
   return (
     <>
-      <h2>POC PERSONALPLANERARE</h2>
+      <div style={{
+        backgroundColor: "#fff987",
+        color: "#4f4b00",
+        margin: "0.5rem",
+        padding: "0.5rem"
+      }}>
+        <h3>POC PERSONALPLANERARE</h3 >
+
+        <small> <p >Detta är ett koncepttest(Proof of concept) av en större schemaläggningsapp. Jag utforskar hur arbetspass kan visualiseras på en tidslinje och hur användaren kan interaggera med dem. Systemet ska även ge feedback i realtid.</p></small>
+
+
+      </div >
+
+
 
       <div className="teamListContainer">
         <TeamList teamlist={teamMembers} shifts={shifts} />
