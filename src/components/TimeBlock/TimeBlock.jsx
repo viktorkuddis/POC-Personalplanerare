@@ -25,9 +25,10 @@ const initialStartTimeInHours = calculateStartTimeInHours(DummyData.shiftStart)
 
 
 
-export default function TimeBlock({ timelineSize }) {
+export default function TimeBlock({ timelineSize, shiftDuration, shiftStart }) {
 
 
+  console.log(calculateStartTimeInHours(shiftStart))
 
 
   // Beskriver hur mycket en timme motsvarar i pixlar på skärmen:
@@ -38,6 +39,7 @@ export default function TimeBlock({ timelineSize }) {
 
   const [duration, setDuration] = useState(initialDuration);
   const [startTimeInHours, setStartTimeInHours] = useState(initialStartTimeInHours)
+
 
   const [isResizing, setIsResizing] = useState(false);
   const [isResizingLeft, setIsResizingLeft] = useState(false);
@@ -75,7 +77,10 @@ export default function TimeBlock({ timelineSize }) {
     setPixelRepresentationOfOneHour(calculateOneHourRepresentationInPixels(timelineSize));
     //...Räknar ut hur mycket en pixel är värd i tid.
     setHourRepresentationOfOnePixel(1 / calculateOneHourRepresentationInPixels(timelineSize));
-  }, [timelineSize]);
+
+    setDuration(shiftDuration)
+    setStartTimeInHours(calculateStartTimeInHours(shiftStart))
+  }, [shiftDuration, shiftStart, timelineSize]);
 
   // //Hur lång tid motdvarar det i pixlar på skärmen::
   // const initialStartTimePosition = initialDuration * pixelRepresentationOfOneHour;

@@ -69,7 +69,7 @@ function App() {
             {teamMembers.map((person) =>
               <TimelineRow key={person.id} firstColumnSize={10} timelineSize={timelineSize} userData={person}>
 
-                {shifts.map((shift) => (shift.userId == person.id && <TimeBlock timelineSize={timelineSize} />
+                {shifts.map((shift) => (shift.userId == person.id && <TimeBlock timelineSize={timelineSize} shiftDuration={shift.totalHours} shiftStart={shift.startTime} />
                 ))}
 
               </TimelineRow>

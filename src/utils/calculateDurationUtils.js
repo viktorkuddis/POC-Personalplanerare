@@ -27,8 +27,11 @@ export function calculateStartTimeDurationInHours(
 
   const shiftStartTime = new Date(startTimeAsDateObject)
 
+  console.log(typeof startTimeAsDateObject)
+
+
   let nolltid = new Date(startTimeAsDateObject);
-  nolltid.setHours(0, 0, 0, 0);
+  nolltid.setUTCHours(0, 0, 0, 0);
   // console.log(nolltid);
 
   // räknar diff:
