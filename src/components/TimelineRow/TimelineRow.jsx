@@ -7,8 +7,7 @@ function TimelineRow({ firstColumnSize, userData, timelineSize, children }) {
     // console.log(firstColumnSize);
 
 
-    return (<>
-
+    return (
         <div className={styles.row}>
             {/* detta är linjerna osm är placerade i bakgrunden: */}
             <TimeLineIndicatorLines firstColumnSize={10} timelineSize={timelineSize} />
@@ -24,7 +23,6 @@ function TimelineRow({ firstColumnSize, userData, timelineSize, children }) {
 
             </div>
         </div>
-    </>
     )
 }
 
