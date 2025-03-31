@@ -1,4 +1,4 @@
-import ShiftCard from "../ShiftCard./ShiftCard";
+import ShiftCard from "../ShiftCard/ShiftCard";
 export default function TeamList({ teamlist, shifts, handleChangeShift }) {
   console.log(teamlist);
   console.log(shifts);

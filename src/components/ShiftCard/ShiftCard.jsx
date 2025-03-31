@@ -115,107 +115,105 @@ export default function ShiftCard({
 
   if (variant == "smallRow") {
     return isEditMode ? (
-      <small>
-        <div className={styles.rowCard}>
-          <div className={styles.editorialRowCardLayout}>
-            <div className={styles.editorialRowCardContent}>
-              <section className={styles.editorialRowCardSection}>
-                <section>
-                  <strong>Start - Slut:</strong>
-                  <br />
-                  <input
-                    type="time"
-                    onChange={(e) => setEditedStartTime(e.target.value)}
-                    value={editedStartTime}
-                  />
-                  -
-                  <input
-                    type="time"
-                    onChange={(e) => setEditedEndTime(e.target.value)}
-                    value={editedEndTime}
-                  />
-                </section>
-                <section>
-                  <strong>Rast:</strong>
-                  <br />
-                  <input
-                    type="time"
-                    onChange={(e) => setEditedBreakStart(e.target.value)}
-                    value={editedBreakStartTime}
-                  />
-                  -
-                  <input
-                    type="time"
-                    onChange={(e) => setEditedBreakEnd(e.target.value)}
-                    value={editedBreakEndTime}
-                  />
-                </section>
-                <section>
-                  <strong>Bemannas av:</strong>
-                  <br />
-                  <select
-                    value={editedUserId}
-                    onChange={(e) => setEditedUserId(e.target.value)}
-                  >
-                    {teamList.map((teamMember) => (
-                      <option key={teamMember.id} value={teamMember.id}>
-                        {teamMember.name}
-                      </option>
-                    ))}
-                  </select>
-                </section>
-                <section style={{ flexGrow: "1" }}>
-                  <strong>&#9432; Info / Kommentar:</strong>
-                  <input
-                    type="text"
-                    onChange={(e) => setEditedComment(e.target.value)}
-                    value={editedComment}
-                    style={{
-                      width: "100%",
-                      maxWidth: "30rem",
-                    }}
-                  />
-                </section>
+      <div className={styles.rowCard}>
+        <div className={styles.editorialRowCardLayout}>
+          <div className={styles.editorialRowCardContent}>
+            <section className={styles.editorialRowCardSection}>
+              <section>
+                <strong>Start - Slut:</strong>
+                <br />
+                <input
+                  type="time"
+                  onChange={(e) => setEditedStartTime(e.target.value)}
+                  value={editedStartTime}
+                />
+                -
+                <input
+                  type="time"
+                  onChange={(e) => setEditedEndTime(e.target.value)}
+                  value={editedEndTime}
+                />
               </section>
+              <section>
+                <strong>Rast:</strong>
+                <br />
+                <input
+                  type="time"
+                  onChange={(e) => setEditedBreakStart(e.target.value)}
+                  value={editedBreakStartTime}
+                />
+                -
+                <input
+                  type="time"
+                  onChange={(e) => setEditedBreakEnd(e.target.value)}
+                  value={editedBreakEndTime}
+                />
+              </section>
+              <section>
+                <strong>Bemannas av:</strong>
+                <br />
+                <select
+                  value={editedUserId}
+                  onChange={(e) => setEditedUserId(e.target.value)}
+                >
+                  {teamList.map((teamMember) => (
+                    <option key={teamMember.id} value={teamMember.id}>
+                      {teamMember.name}
+                    </option>
+                  ))}
+                </select>
+              </section>
+              <section style={{ flexGrow: "1" }}>
+                <strong>&#9432; Info / Kommentar:</strong>
+                <input
+                  type="text"
+                  onChange={(e) => setEditedComment(e.target.value)}
+                  value={editedComment}
+                  style={{
+                    width: "100%",
+                    maxWidth: "30rem",
+                  }}
+                />
+              </section>
+            </section>
 
-              <section className={styles.editorialRowCardSection}>
-                <section>
-                  <strong>Pass:</strong> <br />
-                  {editedTotalHours}h
-                </section>
-                <section>
-                  <strong>Effektiv tid:</strong> <br />
-                  {editedEffectiveWorkHours}h
-                </section>
-                {editedBreakDuration > 0 && (
-                  <section>
-                    Rast: <br />
-                    {editedBreakDuration}h
-                  </section>
-                )}
+            <section className={styles.editorialRowCardSection}>
+              <section>
+                <strong>Pass:</strong> <br />
+                {editedTotalHours}h
               </section>
-            </div>
-            <section className={styles.buttonsContainer}>
-              <button
-                onClick={() => {
-                  setIsEditMode(false);
-                  handleChangeShift(editedShift);
-                }}
-              >
-                Klar
-              </button>
-              <button
-                onClick={() => {
-                  setIsEditMode(false);
-                  handleChangeShift(initialShift);
-                }}
-              >
-                Avbryt
-              </button>
+              <section>
+                <strong>Effektiv tid:</strong> <br />
+                {editedEffectiveWorkHours}h
+              </section>
+              {editedBreakDuration > 0 && (
+                <section>
+                  Rast: <br />
+                  {editedBreakDuration}h
+                </section>
+              )}
             </section>
           </div>
+          <section className={styles.buttonsContainer}>
+            <button
+              onClick={() => {
+                setIsEditMode(false);
+                handleChangeShift(editedShift);
+              }}
+            >
+              Klar
+            </button>
+            <button
+              onClick={() => {
+                setIsEditMode(false);
+                handleChangeShift(initialShift);
+              }}
+            >
+              Avbryt
+            </button>
+          </section>
         </div>
-      </small>
+      </div>
     ) : (
       <small>
         <div className={styles.rowCard}>
