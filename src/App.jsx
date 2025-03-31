@@ -31,7 +31,7 @@ import {
   TimeLineIndicatorNumbers,
 } from "./components/TimeLineIndicator/TimeLineIndicator";
 import TimelineRow from "./components/TimelineRow/TimelineRow";
-import TeamList from "./components/TeamList/TeamList";
+import TeamList from "./components/ShiftList/ShiftList";
 
 console.log("teamMembersData:", teamMembersData);
 console.log("teamMembersData:", scheduleRulesData);

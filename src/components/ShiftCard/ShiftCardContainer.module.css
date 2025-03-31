@@ -1,0 +1,29 @@
+.shiftCardContainer {
+  border-bottom: 1px solid hsla(0, 0%, 50%, 0.2);
+}
+
+.shiftCardListItem {
+  /* background-color: bisque; */
+
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  & > :first-child {
+    flex-grow: 1;
+    /* background-color: antiquewhite; */
+  }
+
+  &:hover {
+    background-color: hsla(0, 0%, 50%, 0.1);
+  }
+}
+
+.shiftCardEditableItem {
+  /* background-color: aqua; */
+  padding: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}

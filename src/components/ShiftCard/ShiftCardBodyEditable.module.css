@@ -1,0 +1,63 @@
+/* editorial row Card Style: */
+
+.editorialRowCardLayout {
+  display: flex;
+  gap: 0.5rem;
+
+  /* background-color: rgb(80, 178, 178); */
+
+  /* position: relative; */
+
+  /* * {
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    margin: 2px;
+  } */
+}
+
+.editorialRowCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+
+  & > :first-child {
+    /* background-color: blue; */
+    width: 90%;
+  }
+
+  /* background-color: aquamarine; */
+}
+
+.editorialRowCardSection {
+  display: flex;
+  /* background-color: bisque; */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  > * {
+    /* background-color: aqua; */
+    /* margin-right: 1rem; */
+    flex-shrink: 0;
+  }
+}
+
+input,
+select {
+  /* all: unset; */
+  background-color: white;
+  border: 1px solid grey;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.buttonsContainer {
+  /* background-color: aliceblue; */
+  display: flex;
+  gap: 0.5rem;
+  align-items: end;
+  margin-left: auto;
+
+  /* position: absolute;
+  right: 0;
+  bottom: 0.25rem; */
+}
