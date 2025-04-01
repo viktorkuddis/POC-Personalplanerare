@@ -5,15 +5,15 @@ import App from "./App.jsx";
 
 import { UsersContextProvider } from "./context/usersContext.jsx";
 import { ShiftsContextProvider } from "./context/ShiftsContext.jsx";
-import { ScheduleRulesContext } from "./context/scheduleRules.jsx";
+import { ScheduleRulesContextProvider } from "./context/scheduleRules.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ShiftsContextProvider>
       <UsersContextProvider>
-        <ScheduleRulesContext>
+        <ScheduleRulesContextProvider>
           <App />
-        </ScheduleRulesContext>
+        </ScheduleRulesContextProvider>
       </UsersContextProvider>
     </ShiftsContextProvider>
   </StrictMode>

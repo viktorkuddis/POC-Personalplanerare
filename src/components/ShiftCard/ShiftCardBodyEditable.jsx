@@ -111,108 +111,113 @@ export default function ShiftCardBodyEditable({
   //   editedComment,
   // });
 
+  // Hantera formens submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submittade ändringen");
+    handleChangeShift(editedShift);
+    setIsEditing(false);
+  };
+
+  // Hantera avbryt (återställ till ursprunglig shift)
+  const handleCancel = () => {
+    console.log("avbröt redigeringen");
+    handleChangeShift(initialShift);
+    setIsEditing(false);
+  };
+
   return (
-    <div className={styles.rowCard}>
-      <div className={styles.editorialRowCardLayout}>
-        <div className={styles.editorialRowCardContent}>
-          <section className={styles.editorialRowCardSection}>
-            <section>
-              <strong>Start - Slut:</strong>
-              <br />
-              <input
-                type="time"
-                onChange={(e) => setEditedStartTime(e.target.value)}
-                value={editedStartTime}
-              />
-              -
-              <input
-                type="time"
-                onChange={(e) => setEditedEndTime(e.target.value)}
-                value={editedEndTime}
-              />
-            </section>
-            <section>
-              <strong>Rast:</strong>
-              <br />
-              <input
-                type="time"
-                onChange={(e) => setEditedBreakStart(e.target.value)}
-                value={editedBreakStartTime}
-              />
-              -
-              <input
-                type="time"
-                onChange={(e) => setEditedBreakEnd(e.target.value)}
-                value={editedBreakEndTime}
-              />
-            </section>
-            <section>
-              <strong>Bemannas av:</strong>
-              <br />
-              <select
-                value={editedUserId}
-                onChange={(e) => setEditedUserId(e.target.value)}
-              >
-                {teamList.map((teamMember) => (
-                  <option key={teamMember.id} value={teamMember.id}>
-                    {teamMember.name}
-                  </option>
-                ))}
-              </select>
-            </section>
-            <section style={{ flexGrow: "1" }}>
-              <strong>&#9432; Info / Kommentar: </strong>
-              <br />
-              <input
-                type="text"
-                onChange={(e) => setEditedComment(e.target.value)}
-                value={editedComment}
-                style={{
-                  width: "100%",
-                  maxWidth: "35rem",
-                  minWidth: "15rem",
-                }}
-              />
-            </section>
-          </section>
-
-          <section className={styles.editorialRowCardSection}>
-            <section>
-              <strong>Pass:</strong> <br />
-              {editedTotalHours}h
-            </section>
-            <section>
-              <strong>Effektiv tid:</strong> <br />
-              {editedEffectiveWorkHours}h
-            </section>
-            {editedBreakDuration > 0 && (
+    <form onSubmit={handleSubmit}>
+      <div className={styles.rowCard}>
+        <div className={styles.editorialRowCardLayout}>
+          <div className={styles.editorialRowCardContent}>
+            <section className={styles.editorialRowCardSection}>
               <section>
-                Rast: <br />
-                {editedBreakDuration}h
+                <strong>Start - Slut:</strong>
+                <br />
+                <input
+                  type="time"
+                  onChange={(e) => setEditedStartTime(e.target.value)}
+                  value={editedStartTime}
+                />
+                -
+                <input
+                  type="time"
+                  onChange={(e) => setEditedEndTime(e.target.value)}
+                  value={editedEndTime}
+                />
               </section>
-            )}
-
-            <section className={styles.buttonsContainer}>
-              <button
-                onClick={() => {
-                  handleChangeShift(editedShift);
-                  setIsEditing(false);
-                }}
-              >
-                Klar
-              </button>
-              <button
-                onClick={() => {
-                  handleChangeShift(initialShift);
-                  setIsEditing(false);
-                }}
-              >
-                Avbryt
-              </button>
+              <section>
+                <strong>Rast:</strong>
+                <br />
+                <input
+                  type="time"
+                  onChange={(e) => setEditedBreakStart(e.target.value)}
+                  value={editedBreakStartTime}
+                />
+                -
+                <input
+                  type="time"
+                  onChange={(e) => setEditedBreakEnd(e.target.value)}
+                  value={editedBreakEndTime}
+                />
+              </section>
+              <section>
+                <strong>Bemannas av:</strong>
+                <br />
+                <select
+                  value={editedUserId}
+                  onChange={(e) => setEditedUserId(e.target.value)}
+                >
+                  {teamList.map((teamMember) => (
+                    <option key={teamMember.id} value={teamMember.id}>
+                      {teamMember.name}
+                    </option>
+                  ))}
+                </select>
+              </section>
+              <section style={{ flexGrow: "1" }}>
+                <strong>&#9432; Info / Kommentar: </strong>
+                <br />
+                <input
+                  type="text"
+                  onChange={(e) => setEditedComment(e.target.value)}
+                  value={editedComment}
+                  style={{
+                    width: "100%",
+                    maxWidth: "35rem",
+                    minWidth: "15rem",
+                  }}
+                />
+              </section>
             </section>
-          </section>
+
+            <section className={styles.editorialRowCardSection}>
+              <section>
+                <strong>Pass:</strong> <br />
+                {editedTotalHours}h
+              </section>
+              <section>
+                <strong>Effektiv tid:</strong> <br />
+                {editedEffectiveWorkHours}h
+              </section>
+              {editedBreakDuration > 0 && (
+                <section>
+                  Rast: <br />
+                  {editedBreakDuration}h
+                </section>
+              )}
+
+              <section className={styles.buttonsContainer}>
+                <button type="submit">Klar</button>
+                <button type="button" onClick={handleCancel}>
+                  Avbryt
+                </button>
+              </section>
+            </section>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }

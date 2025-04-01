@@ -5,11 +5,10 @@ export function calculateDurationInHours(
   // console.log("starttid:", startTimeAsDateObject);
   // console.log("sluttid:", endTimeAsDateObject);
 
-
-
   // räknar diff:
   //(ser till att de verkligen är dateobjekt också )
-  const durationMilliseconds = new Date(endTimeAsDateObject) - new Date(startTimeAsDateObject);
+  const durationMilliseconds =
+    new Date(endTimeAsDateObject) - new Date(startTimeAsDateObject);
   // console.log("duration i milisekunder:", durationMilliseconds);
 
   const durationMinutes = durationMilliseconds / (1000 * 60);
@@ -21,14 +20,10 @@ export function calculateDurationInHours(
   return durationHours;
 }
 
-export function calculateStartTimeDurationInHours(
-  startTimeAsDateObject
-) {
+export function calculateStartTimeDurationInHours(startTimeAsDateObject) {
+  const shiftStartTime = new Date(startTimeAsDateObject);
 
-  const shiftStartTime = new Date(startTimeAsDateObject)
-
-  console.log(typeof startTimeAsDateObject)
-
+  // console.log(typeof startTimeAsDateObject)
 
   let nolltid = new Date(startTimeAsDateObject);
   nolltid.setUTCHours(0, 0, 0, 0);
@@ -46,5 +41,3 @@ export function calculateStartTimeDurationInHours(
 
   return durationHours;
 }
-
-
